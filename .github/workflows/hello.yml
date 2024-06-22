@@ -11,6 +11,6 @@ jobs:
         with:
           ref: master
       - run: ls -al
-      - run: echo "${{BRANCH}}"
+      - run: echo "${BRANCH}"
         env:
           BRANCH: main
