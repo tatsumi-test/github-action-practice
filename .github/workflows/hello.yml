@@ -5,9 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello World"
-      - run: echo "${ github.ref }"
+      - run: echo "${{ github.ref }}"
       - run: ls -al
       - uses: actions/checkout@v4
         with:
           ref: master
       - run: ls -al
+      - run: echo "${{BRANCH}}"
+        env:
+          BRANCH: main
