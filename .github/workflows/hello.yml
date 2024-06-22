@@ -7,3 +7,5 @@ jobs:
       - run: echo "Hello World"
       - run: echo "${{ github.ref }}"
       - run: ls -al
+      - uses: actions/checkout@v4
+      - run: ls -al
