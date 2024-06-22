@@ -8,4 +8,6 @@ jobs:
       - run: echo "${{ github.ref }}"
       - run: ls -al
       - uses: actions/checkout@v4
+        with:
+          ref: master
       - run: ls -al
