@@ -8,9 +8,9 @@ jobs:
     steps:
       - run: echo "Hello World"
       - run: echo "${ACTOR}"
-      - run: echo "${{VARKEY}}"
+      - run: echo "${VARKEY}"
         env:
           VARKEY: ${{vars.VARKEY}}
-      - run: echo "${{SECRETKEY}}"
+      - run: echo "${SECRETKEY}"
         env:
           SECRETKEY: ${{secrets.SECRETKEY}}
