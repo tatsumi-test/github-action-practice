@@ -7,10 +7,10 @@ jobs:
       ACTOR: ${{github.actor}}
     steps:
       - run: echo "Hello World"
-      - run: echo "${ACTOR}"
-      - run: echo "${VARKEY}"
+      - run: printenv | grep 'LITERAL_'
         env:
-          VARKEY: ${{vars.VARKEY}}
-      - run: echo "${SECRETKEY}"
-        env:
-          SECRETKEY: ${{secrets.SECRETKEY}}
+          LITERAL_NULL: ${{ null }}
+          LITERAL_INTEGER: ${{123}}
+          LITERAL_STRING: HELLO
+          LITERAL_BOOL: ${{true}}
+          TEST: test
