@@ -8,5 +8,5 @@ jobs:
     steps:
       - run: echo "Hello World"
       - run: echo "${ACTOR}"
-      - run: echo "#{vars.VARKEY}"
-      - run: echo "#{secrets.SECRETKEY}"
+      - run: echo "${vars.VARKEY}"
+      - run: echo "${secrets.SECRETKEY}"
