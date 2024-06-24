@@ -7,10 +7,6 @@ jobs:
       ACTOR: ${{github.actor}}
     steps:
       - run: echo "Hello World"
-      - run: printenv | grep 'LITERAL_'
-        env:
-          LITERAL_NULL: ${{ null }}
-          LITERAL_INTEGER: ${{123}}
-          LITERAL_STRING: HELLO
-          LITERAL_BOOL: ${{true}}
-          TEST: test
+      - run: exit 1
+      - run: echo "Hello World2"
+        if: ${{ failure() }}
