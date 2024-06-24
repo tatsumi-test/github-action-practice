@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: echo "Hello World"
       - id: source
-        run: echo "result=hello" >> "${{ GITHUB_OUTPUT }}"
+        run: echo "result=hello" >> "${GITHUB_OUTPUT}"
