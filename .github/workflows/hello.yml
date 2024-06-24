@@ -7,6 +7,8 @@ jobs:
       ACTOR: ${{github.actor}}
     steps:
       - run: echo "Hello World"
-      - run: exit 1
-      - run: echo "Hello World2"
-        if: ${{ success() }}
+      - id: source
+        run: echo "result=hello" >> ${ GITHUB_OUTPUT }
+      - run: echo ${ steps.source.output.result }
+      - run: echo "RESULT=hello" >> ${ GITHUB_ENV }
+      - run: echo "${ RESULT }"
