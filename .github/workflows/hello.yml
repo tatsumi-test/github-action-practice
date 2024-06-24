@@ -9,3 +9,4 @@ jobs:
       - run: echo "Hello World"
       - id: source
         run: echo "result=hello" >> "${GITHUB_OUTPUT}"
+      - run: echo "${{steps.source.output.result}}"
