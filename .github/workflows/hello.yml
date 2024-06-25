@@ -3,14 +3,11 @@ on: push
 jobs:
   hello:
     runs-on: ubuntu-latest
-    env:
-      ACTOR: ${{github.actor}}
+    permissions:
+      pull-requests: write
+      contents: read
     steps:
-      - run: echo "Hello World"
-      - id: source
-        run: echo "result=hello" >> "${GITHUB_OUTPUT}"
-      - run: echo "${RESULT}"
+      - uses: actions/checkout@4
+      - run: ph pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}"
         env:
-          RESULT: ${{steps.source.outputs.result}}
-      - run: echo "RESULT=hello2" >> "${GITHUB_ENV}"
-      - run: echo "${RESULT}"
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
