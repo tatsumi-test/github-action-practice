@@ -7,4 +7,7 @@ jobs:
       - run: echo "${CURRENT_BRANCH}"
         env:
           CURRENT_BRANCH: ${{github.ref}}
-        if: ${{ github.actor == tatsumi-test }}
+        if: ${{ github.actor == 'tatsumi-test' }}
+      - run: echo "${NAME}"
+        env:
+          NAME: ${{'naoki'}}
