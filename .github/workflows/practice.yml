@@ -4,5 +4,6 @@ jobs:
   print_branch:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "HELLO=world" >> ${GITHUB_ENV}
-      - run: echo "${HELLO}"
+      - run: echo "HELLO=world" >> ${GITHUB_OUTPUT}
+        id: print
+      - run: echo "${{steps.print.outputs.HELLO}}"
