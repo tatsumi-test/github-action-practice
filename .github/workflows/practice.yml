@@ -4,10 +4,5 @@ jobs:
   print_branch:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${CURRENT_BRANCH}"
-        env:
-          CURRENT_BRANCH: ${{github.ref}}
-        if: ${{ github.actor == 'tatsumi-test' }}
-      - run: echo "${NAME}"
-        env:
-          NAME: ${{"naoki"}}
+      - run: echo "HELLO=world" >> ${GITHUB_ENV}
+      - run: echo "${HELLO}"
