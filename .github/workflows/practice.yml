@@ -10,4 +10,4 @@ jobs:
         if: ${{ github.actor == 'tatsumi-test' }}
       - run: echo "${NAME}"
         env:
-          NAME: ${{'naoki'}}
+          NAME: ${{"naoki"}}
