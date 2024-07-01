@@ -1,0 +1,9 @@
+name: Practice
+on: workflow_dispatch
+jobs:
+  print_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${BRANCH}"
+        env:
+          BRANCH: ${{github.ref}}
