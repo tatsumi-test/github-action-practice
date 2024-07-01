@@ -1,6 +1,5 @@
 name: Practice
-on:
-  workflow_dispatch:
+on: push
 jobs:
   print_branch:
     runs-on: ubuntu-latest
