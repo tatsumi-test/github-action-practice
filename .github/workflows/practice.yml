@@ -1,12 +1,10 @@
-name: workflow_dispatch sample 1
-
+name: Practice
 on:
   workflow_dispatch:
-
 jobs:
-  printLog:
+  print_branch:
     runs-on: ubuntu-latest
-
     steps:
-    - name: print log
-      run: echo "Hello!"
+      - run: echo "${CURRENT_BRANCH}"
+        env:
+          CURRENT_BRANCH: ${{github.ref}}
