@@ -1,6 +1,6 @@
 name: workflow_dispatch sample 1
 
-on: workflow_dispatch
+on: push
 
 jobs:
   printLog:
