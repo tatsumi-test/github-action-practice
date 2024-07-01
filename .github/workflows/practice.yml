@@ -1,12 +1,9 @@
-name: workflow_dispatch sample 1
-
-on:
-  workflow_dispatch:
-
+name: Practice
+on: push
 jobs:
-  printLog:
+  print_branch:
     runs-on: ubuntu-latest
-
     steps:
-    - name: print log
-      run: echo "Hello!"
+      - run: echo "HELLO=world" >> ${GITHUB_OUTPUT}
+        id: print
+      - run: echo "${{steps.print.outputs.HELLO}}"
