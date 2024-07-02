@@ -17,3 +17,4 @@ jobs:
           ruby-version: '3.3.0'
           bundler-cache: true
       - run: ruby hello.rb
+        name: minitest
