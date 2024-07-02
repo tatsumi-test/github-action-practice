@@ -1,6 +1,6 @@
 name: Practice
 on: push
-default:
+defaults:
   run:
     shell: bash
 concurrency:
