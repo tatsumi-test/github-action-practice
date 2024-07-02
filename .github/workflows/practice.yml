@@ -1,9 +1,12 @@
 name: Practice
 on: push
 jobs:
-  print_branch:
+  minitest:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "HELLO=world" >> ${GITHUB_OUTPUT}
-        id: print
-      - run: echo "${{steps.print.outputs.HELLO}}"
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.0'
+          bundler-cache: true
+      - run: ruby hello.rb
