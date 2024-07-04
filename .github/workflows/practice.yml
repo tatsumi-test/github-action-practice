@@ -1,5 +1,12 @@
 name: Practice
-on: push
+on:
+  workflow_dispatch:
+    input:
+      environment:
+        type: environment
+        default: staging
+        required: false
+        description: Environment
 defaults:
   run:
     shell: bash
@@ -7,14 +14,25 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  minitest:
+  # minitest:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 2
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: ruby/setup-ruby@v1
+  #       with:
+  #         ruby-version: '3.3.0'
+  #         bundler-cache: true
+  #     - run: ruby hello.rb
+  #       name: minitest
+  print:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    environment: ${{ inputs.environment }}
+    env:
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ vars.PASSWORD }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3.0'
-          bundler-cache: true
-      - run: ruby hello.rb
-        name: minitest
+      - name: print USERNAME
+        run: echo "${USERNAME}"
+      - name: print PASSWORD
+        run: echo "${PASSWORD}"
